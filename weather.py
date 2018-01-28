@@ -17,7 +17,7 @@ class YahooWeather:
         condition['date']=(condition_data['date'])
         condition['temp']=self.to_celsius(int(condition_data['temp']))
         condition['text']=condition_data['text']
-        condition['code']=int(condition_data['code'])
+        condition['code']=condition_data['code']
         
         return condition
     
@@ -35,8 +35,8 @@ class CityInfo:
         return self.weather_provider.get(self.city)
 
     def pic_print(self, code): # print weather icon
-        pic_filename = '%s.png' % (str(code))
-        pic_path = "weather_icons\\" + pic_filename
+        pic_filename = '%s.png' % (code)
+        pic_path = os.path.join("weather_icons", pic_filename)
         ''' %pylab inline
         img=mpimg.imread(pic_path)
         imgplot = plt.imshow(img)
